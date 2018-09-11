@@ -4,7 +4,7 @@ Project / M3202C - Modélisations mathématiques @ IUT Aix-en-Provence
 
 ## Auteurs
 
-* Sirine ACHACHE
+* ACHACHE Sirine
 * LEGRAND Benjamin
 * MARTINEZ Nicolas
 * TARFI Emma
