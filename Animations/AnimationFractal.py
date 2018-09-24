@@ -33,7 +33,7 @@ class AnimationFractal(AnimationBase):
 			_ = fractal[y]
 			for x in range(len(_)):
 				for z in range(len(_)):
-					if _[x][z] == 1:
+						self.drawCube(cube_scale * x, cube_scale * y, cube_scale * z, cube_scale, 'blue')
 						super().drawCube(cube_scale * x, cube_scale * y, cube_scale * z, cube_scale, 'blue')
 
 		self.window.save(filename)
