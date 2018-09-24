@@ -13,10 +13,28 @@ Projet / M3202C - Modélisations mathématiques @ IUT Aix-en-Provence
 
 ## Dépendances
 
-| **Paquet** |
-|------------|
-| sagemath   |
-| ffmpeg     |
+* sagemath
+* ffmpeg
+
+### Arch Linux
+
+```
+$ sudo pacman -S sagemath
+$ sudo pacman -S ffmpeg
+```
+
+### Ubuntu
+
+```
+$ sudo apt-get install sagemath
+$ sudo apt-get install ffmpeg
+```
+
+## Installation des modules Python2
+
+```
+$ pip2 install -r requirements.txt --user
+```
 
 ## Usage
 
