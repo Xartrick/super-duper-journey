@@ -46,5 +46,5 @@ class AnimationTerrain(AnimationBase):
 
 		self.window.save(filename)
 
-	def terrain(self, x, y, offset=0.0):
-		return pnoise2((float(offset) / 100.0) - (y / 100.0), (float(offset) / 100.0) - (x / 100.0), self.octave)
+	def terrain(self, xPos, yPos, offset=0.0):
+		return pnoise2((float(offset) / 100.0) - (yPos / 100.0), (float(offset) / 100.0) - (xPos / 100.0), self.octave)
