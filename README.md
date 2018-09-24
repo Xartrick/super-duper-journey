@@ -1,5 +1,7 @@
 # super-duper-journey
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5b78a1524ac64e8eb275ff96d4caf404)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Xartrick/super-duper-journey&amp;utm_campaign=Badge_Grade)
+
 Projet / M3202C - Modélisations mathématiques @ IUT Aix-en-Provence
 
 ## Auteurs
