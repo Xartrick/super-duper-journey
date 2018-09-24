@@ -15,9 +15,9 @@ class VideoConverter:
 
 	@classmethod
 	def clean(cls):
-		dir   = 'frames'
-		files = os.listdir(dir)
+		directory = 'frames'
+		files     = os.listdir(directory)
 
 		for file in files:
 			if file.endswith('.png'):
-				os.remove(os.path.join(dir, file))
+				os.remove(os.path.join(directory, file))
