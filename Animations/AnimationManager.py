@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from sage.all import parallel
 
 from AnimationTerrain import AnimationTerrain
@@ -27,10 +29,10 @@ class AnimationManager:
 		animation.render(n, filename)
 
 		if self.frameManager.isBeat():
-			print
-			print('{:3d}.{}.{}'.format(self.frameManager.barCount() + 1, self.frameManager.beatModulo(), self.frameManager.sixteenthModulo())), 
+			print()
+			print('{:3d}.{}.{} '.format(self.frameManager.barCount() + 1, self.frameManager.beatModulo(), self.frameManager.sixteenthModulo()), end='')
 
-		print('.'),
+		print('.', end='')
 	
 	def addAnimation(self, animation):
 		start = self.getAnimationFrames()
