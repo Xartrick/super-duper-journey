@@ -1,6 +1,6 @@
 # super-duper-journey
 
-Project / M3202C - Modélisations mathématiques @ IUT Aix-en-Provence
+Projet / M3202C - Modélisations mathématiques @ IUT Aix-en-Provence
 
 ## Auteurs
 
@@ -34,3 +34,12 @@ optional arguments:
   --fps FPS        Frame rate (default: 30)
   --bpm BPM        Beat-per-minute (default: 150)
 ```
+
+## Références
+
+* http://doc.sagemath.org/html/en/reference/plot3d/sage/plot/plot3d/tachyon.html
+* http://web.mit.edu/sage/export/tachyon-0.98~beta.dfsg/docs/tachyon.pdf
+* https://fr.wikipedia.org/wiki/Matrice_de_rotation#Rotations_en_deux_et_trois_dimensions
+* https://fr.wikipedia.org/wiki/Bruit_de_Perlin
+* https://fr.wikipedia.org/wiki/Fractale
+* https://fr.wikipedia.org/wiki/Flocon_de_Koch
