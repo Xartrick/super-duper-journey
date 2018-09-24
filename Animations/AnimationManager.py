@@ -36,7 +36,7 @@ class AnimationManager:
 
 	def addAnimation(self, animation):
 		start = self.getAnimationFrames()
-		
+
 		self.animations.append({
 			'start':     start,
 			'animation': animation
