@@ -21,12 +21,12 @@ class AnimationManager:
 		self.addAnimation(AnimationFractal(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
 
 	@parallel
-	def render(self, n, filename):
-		self.frameManager.setCurrentFrame(n)
+	def render(self, frameNumber, filename):
+		self.frameManager.setCurrentFrame(frameNumber)
 
 		animation = self.getCurrentAnimation()
 
-		animation.render(n, filename)
+		animation.render(frameNumber, filename)
 
 		if self.frameManager.isBeat():
 			print()
