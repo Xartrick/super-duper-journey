@@ -19,15 +19,13 @@ Projet / M3202C - Modélisations mathématiques @ IUT Aix-en-Provence
 ### Arch Linux
 
 ```
-$ sudo pacman -S sagemath
-$ sudo pacman -S ffmpeg
+$ sudo pacman -S sagemath ffmpeg
 ```
 
 ### Ubuntu
 
 ```
-$ sudo apt-get install sagemath
-$ sudo apt-get install ffmpeg
+$ sudo apt-get install sagemath ffmpeg
 ```
 
 ## Installation des modules Python2
