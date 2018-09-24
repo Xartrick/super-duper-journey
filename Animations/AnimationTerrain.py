@@ -43,8 +43,8 @@ class AnimationTerrain(AnimationBase):
 			for z in range(0, cols):
 				self.window.triangle([x * scale,       self.terrain(x, z+1, n),   (z + 1) * scale], [x * scale, self.terrain(x, z, n),   z * scale],       [(x + 1) * scale, self.terrain(x+1, z, n), z * scale], 'green')
 				self.window.triangle([(x + 1) * scale, self.terrain(x+1, z+1, n), (z + 1) * scale], [x * scale, self.terrain(x, z+1, n), (z + 1) * scale], [(x + 1) * scale, self.terrain(x+1, z, n), z * scale], 'green')
-		
+
 		self.window.save(filename)
-	
+
 	def terrain(self, x, y, offset=0.0):
 		return pnoise2((float(offset) / 100.0) - (y / 100.0), (float(offset) / 100.0) - (x / 100.0), self.octave)
