@@ -16,7 +16,7 @@ class AnimationManager:
 	
 	def initializeAnimations(self):
 		self.addAnimation(AnimationTerrain(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
-		# self.addAnimation(AnimationFractal(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
+		self.addAnimation(AnimationFractal(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
 
 	@parallel
 	def render(self, n, filename):
