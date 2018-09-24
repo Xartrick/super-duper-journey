@@ -3,14 +3,12 @@ from AnimationBase import AnimationBase
 from sage.all import matrix, sin, cos, pi
 
 class AnimationFractal(AnimationBase):
-	def render(self, n, filename):
-		self.frameManager.setCurrentFrame(n)
+	def render(self, frameNumber, filename):
+		self.frameManager.setCurrentFrame(frameNumber)
 
-		#camera_center = (1.0, 0.75, -1)
-		# look_at       = (0.5, 0.25, 1)
 		look_at = (0.5, 0, 0.5)
 
-		alpha = (2.0 * pi) * (float(n / 4.0) / float(self.getDuration() / 4.0))
+		alpha = (2.0 * pi) * (float(frameNumber / 4.0) / float(self.getDuration() / 4.0))
 		P     = matrix(2, 1, [1.0, 1.0])
 		R     = matrix(2, 2, [cos(alpha), -sin(alpha), sin(alpha), cos(alpha)])
 

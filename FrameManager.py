@@ -1,20 +1,20 @@
 class FrameManager:
-	fps   = 0.0
-	bpm   = 0.0
+	fps = 0.0
+	bpm = 0.0
 	frame = 0
 
 	def __init__(self, fps = 30, bpm = 150):
-		self.fps   = float(fps)
-		self.bpm   = float(bpm)
+		self.fps = float(fps)
+		self.bpm = float(bpm)
 
 	def framesPerBar(self):
-		return self.framesPerBeat() * 4.0 # 48
+		return self.framesPerBeat() * 4.0
 
 	def framesPerBeat(self):
-		return (self.fps * 60.0) / self.bpm # 12
+		return (self.fps * 60.0) / self.bpm
 
 	def framesPerSixteenth(self):
-		return self.framesPerBeat() / 4.0 # 3
+		return self.framesPerBeat() / 4.0
 
 	def barCount(self):
 		return int((self.frame - 1) / self.framesPerBar())
