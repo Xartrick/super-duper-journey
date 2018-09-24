@@ -39,10 +39,10 @@ class AnimationTerrain(AnimationBase):
 		rows  = 25
 		scale = 1.0 / float(cols)
 
-		for x in range(0, rows):
-			for z in range(0, cols):
-				self.window.triangle([x * scale,       self.terrain(x,   z+1, frameNumber), (z + 1) * scale], [x * scale, self.terrain(x, z,   frameNumber), z * scale],       [(x + 1) * scale, self.terrain(x+1, z, frameNumber), z * scale], 'green')
-				self.window.triangle([(x + 1) * scale, self.terrain(x+1, z+1, frameNumber), (z + 1) * scale], [x * scale, self.terrain(x, z+1, frameNumber), (z + 1) * scale], [(x + 1) * scale, self.terrain(x+1, z, frameNumber), z * scale], 'green')
+		for row in range(0, rows):
+			for col in range(0, cols):
+				self.window.triangle([row * scale,       self.terrain(row,   col+1, frameNumber), (col + 1) * scale], [row * scale, self.terrain(row, col,   frameNumber), col * scale],       [(row + 1) * scale, self.terrain(row+1, col, frameNumber), col * scale], 'green')
+				self.window.triangle([(row + 1) * scale, self.terrain(row+1, col+1, frameNumber), (col + 1) * scale], [row * scale, self.terrain(row, col+1, frameNumber), (col + 1) * scale], [(row + 1) * scale, self.terrain(row+1, col, frameNumber), col * scale], 'green')
 
 		self.window.save(filename)
 
