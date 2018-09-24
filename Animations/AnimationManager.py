@@ -40,6 +40,7 @@ class AnimationManager:
 			'animation': animation
 		})
 
+	# TODO : select correct animation based on current frame, animation's start frame and duration
 	def getCurrentAnimation(self):
 		currentFrame = self.frameManager.getCurrentFrame()
 
