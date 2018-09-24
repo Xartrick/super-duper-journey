@@ -24,16 +24,16 @@ class AnimationFractal(AnimationBase):
 
 		self.window.texture('blue', ambient=0.2, diffuse=1.0, specular=0.0, opacity=1.0, color=(0,0,1))
 
-		fractalSize = self.getFractalSize()
-		fractal     = self.getFractal()
+		fractal_size = self.getFractalSize()
+		fractal      = self.getFractal()
 
-		cube_scale = 1. / float(fractalSize)
+		cube_scale = 1. / float(fractal_size)
 
-		for y, y_fractal in enumerate(fractal):
-			for x, x_y_fractal in enumerate(y_fractal):
-				for z, x_y_z_fractal in enumerate(x_y_fractal):
+		for y_pos, y_fractal in enumerate(fractal):
+			for x_pos, x_y_fractal in enumerate(y_fractal):
+				for z_pos, x_y_z_fractal in enumerate(x_y_fractal):
 					if x_y_z_fractal == 1:
-						self.drawCube(cube_scale * x, cube_scale * y, cube_scale * z, cube_scale, 'blue')
+						self.drawCube(cube_scale * x_pos, cube_scale * y_pos, cube_scale * z_pos, cube_scale, 'blue')
 
 		self.window.save(filename)
 
