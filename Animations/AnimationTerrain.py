@@ -15,11 +15,11 @@ class AnimationTerrain(AnimationBase):
 
 		look_at = (0.5, 0, 0.5)
 
-		alpha = (2.0 * pi) * (float(frameNumber) / float(self.getDuration()))
-		P     = matrix(2, 1, [1.0, 1.0])
-		R     = matrix(2, 2, [cos(alpha), -sin(alpha), sin(alpha), cos(alpha)])
+		alpha    = (2.0 * pi) * (float(frameNumber) / float(self.getDuration()))
+		p_matrix = matrix(2, 1, [1.0, 1.0])
+		r_matrix = matrix(2, 2, [cos(alpha), -sin(alpha), sin(alpha), cos(alpha)])
 
-		pos = R * P
+		pos = r_matrix * p_matrix
 
 		camera_center = (float(pos[0][0]), 0.75, float(pos[1][0]))
 

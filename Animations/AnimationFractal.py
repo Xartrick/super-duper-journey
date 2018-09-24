@@ -10,11 +10,11 @@ class AnimationFractal(AnimationBase):
 		# look_at       = (0.5, 0.25, 1)
 		look_at = (0.5, 0, 0.5)
 
-		alpha   = (2.0 * pi) * (float(frameNumber / 4.0) / float(self.getDuration() / 4.0))
-		pMatrix = matrix(2, 1, [1.0, 1.0])
-		rMatrix = matrix(2, 2, [cos(alpha), -sin(alpha), sin(alpha), cos(alpha)])
+		alpha    = (2.0 * pi) * (float(frameNumber / 4.0) / float(self.getDuration() / 4.0))
+		p_matrix = matrix(2, 1, [1.0, 1.0])
+		r_matrix = matrix(2, 2, [cos(alpha), -sin(alpha), sin(alpha), cos(alpha)])
 
-		pos = rMatrix * pMatrix
+		pos = r_matrix * p_matrix
 
 		camera_center = (float(pos[0][0]), 0.75, float(pos[1][0]))
 

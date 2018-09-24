@@ -44,10 +44,10 @@ class AnimationManager:
 
 	# TODO : select correct animation based on current frame, animation's start frame and duration
 	def getCurrentAnimation(self):
-		currentFrame = self.frameManager.getCurrentFrame()
+		current_frame = self.frameManager.getCurrentFrame()
 
 		for animation in self.animations:
-			if animation['start'] >= currentFrame and animation['start'] + animation['animation'].getDuration() < currentFrame:
+			if animation['start'] >= current_frame and animation['start'] + animation['animation'].getDuration() < current_frame:
 				return animation['animation']
 
 		return self.animations[0]['animation']
