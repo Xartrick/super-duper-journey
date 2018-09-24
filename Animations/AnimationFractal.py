@@ -29,12 +29,11 @@ class AnimationFractal(AnimationBase):
 
 		cube_scale = 1. / float(fractalSize)
 
-		for y in range(len(fractal)):
-			_ = fractal[y]
-			for x in range(len(_)):
-				for z in range(len(_)):
+		for y, yFractal in enumerate(fractal):
+			for x, xyFractal in enumerate(yFractal):
+				for z, xyzFractal in enumerate(xyFractal):
+					if xyzFractal == 1:
 						self.drawCube(cube_scale * x, cube_scale * y, cube_scale * z, cube_scale, 'blue')
-						super().drawCube(cube_scale * x, cube_scale * y, cube_scale * z, cube_scale, 'blue')
 
 		self.window.save(filename)
 
