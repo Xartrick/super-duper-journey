@@ -7,26 +7,26 @@ from AnimationFractal import AnimationFractal
 
 class AnimationManager:
 	frameManager = None
-	width = 0
-	height = 0
-	animations = []
+	width        = 0
+	height       = 0
+	animations   = []
 
 	def __init__(self, frameManager, width, height):
 		self.frameManager = frameManager
-		self.width = width
-		self.height = height
+		self.width        = width
+		self.height       = height
 
 	def initializeAnimations(self):
 		self.addAnimation(AnimationTerrain(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
 		self.addAnimation(AnimationFractal(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
 
 	@parallel
-	def render(self, frameNumber, filename):
-		self.frameManager.setCurrentFrame(frameNumber)
+	def render(self, n, filename):
+		self.frameManager.setCurrentFrame(n)
 
 		animation = self.getCurrentAnimation()
 
-		animation.render(frameNumber, filename)
+		animation.render(n, filename)
 
 		if self.frameManager.isBeat():
 			print()

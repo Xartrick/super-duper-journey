@@ -2,16 +2,16 @@ from sage.all import Tachyon
 
 class AnimationBase:
 	frameManager = None
-	width = 0
-	height = 0
-	duration = 0
-	window = None
+	width         = 0
+	height        = 0
+	duration      = 0
+	window        = None
 
 	def __init__(self, frameManager, width, height, duration):
 		self.frameManager = frameManager
-		self.width = width
-		self.height = height
-		self.duration = duration
+		self.width        = width
+		self.height       = height
+		self.duration     = duration
 
 	def initializeWindow(self, camera_center, look_at):
 		self.window = Tachyon(xres=self.width, yres=self.height, antialiasing=True, raydepth=10, camera_center=camera_center, look_at=look_at, updir=(0,1,0))
