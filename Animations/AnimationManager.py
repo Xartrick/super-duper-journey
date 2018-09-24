@@ -33,7 +33,7 @@ class AnimationManager:
 			print('{:3d}.{}.{} '.format(self.frameManager.barCount() + 1, self.frameManager.beatModulo(), self.frameManager.sixteenthModulo()), end='')
 
 		print('.', end='')
-	
+
 	def addAnimation(self, animation):
 		start = self.getAnimationFrames()
 		
