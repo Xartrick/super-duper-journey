@@ -49,7 +49,7 @@ class AnimationManager:
 		for animation in self.animations:
 			if animation['start'] >= currentFrame and animation['start'] + animation['animation'].getDuration() < currentFrame:
 				return animation['animation']
-		
+
 		return self.animations[0]['animation']
 
 	def getAnimationFrames(self):
@@ -57,5 +57,5 @@ class AnimationManager:
 
 		for animation in self.animations:
 			frames += animation['animation'].getDuration()
-		
+
 		return frames
