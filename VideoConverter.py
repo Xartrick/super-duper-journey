@@ -5,9 +5,9 @@ class VideoConverter:
 	output = ''
 	fps    = 0.0
 
-	def __init__(self, input, output, fps = 30):
-		self.input  = input
-		self.output = output
+	def __init__(self, inputFiles, outputFile, fps = 30):
+		self.input  = inputFiles
+		self.output = outputFile
 		self.fps    = fps
 
 	def convert(self):
