@@ -1,6 +1,6 @@
 from AnimationBase import AnimationBase
 
-from sage.all import parallel, matrix, sin, cos, pi
+from sage.all import matrix, sin, cos, pi
 
 class AnimationFractal(AnimationBase):
 	def render(self, n, filename):

@@ -1,4 +1,3 @@
-from sage.all import parallel
 from sage.all import Tachyon
 
 class AnimationBase:

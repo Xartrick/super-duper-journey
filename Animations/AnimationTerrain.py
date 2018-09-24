@@ -1,6 +1,6 @@
 from AnimationBase import AnimationBase
 
-from sage.all import parallel, cos, sin, matrix, pi
+from sage.all import cos, sin, matrix, pi
 
 from noise import pnoise2
 
