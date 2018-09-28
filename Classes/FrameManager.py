@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class FrameManager:
 	fps   = 0.0
 	bpm   = 0.0
