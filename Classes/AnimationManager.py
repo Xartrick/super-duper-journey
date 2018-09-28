@@ -2,8 +2,8 @@ from __future__ import print_function
 
 from sage.all import parallel
 
-from AnimationTerrain import AnimationTerrain
-from AnimationFractal import AnimationFractal
+from Animations.AnimationTerrain import AnimationTerrain
+from Animations.AnimationFractal import AnimationFractal
 
 class AnimationManager:
 	frameManager = None
