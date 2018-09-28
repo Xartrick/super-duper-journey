@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from AnimationBase import AnimationBase
 
 from sage.all import matrix, sin, cos, pi
