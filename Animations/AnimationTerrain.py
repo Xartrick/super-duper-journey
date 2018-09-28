@@ -24,8 +24,8 @@ class AnimationTerrain(AnimationBase):
 		camera_center = (float(pos[0][0]), 0.75, float(pos[1][0]))
 
 		self.initializeWindow(camera_center, look_at)
-		# self.window.light((0.5,1,-1), 0.2, (1,0.5,1))
-		self.window.light((1, 2, -3), 0.2, (1, 0.5, 1))
+
+		self.window.light((1, 2, -3), 0.2, (1, 1, 1))
 
 		fpb        = float(self.frameManager.framesPerBeat()) * 2.0
 		brightness = (frameNumber % fpb) / fpb

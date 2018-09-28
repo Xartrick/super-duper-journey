@@ -20,7 +20,7 @@ class AnimationFractal(AnimationBase):
 
 		self.initializeWindow(camera_center, look_at)
 
-		self.window.light((1, 2, -3), 0.2, (1, 0.5, 1))
+		self.window.light((1, 2, -3), 0.2, (1, 1, 1))
 
 		self.window.texture('blue', ambient=0.2, diffuse=1.0, specular=0.0, opacity=1.0, color=(0,0,1))
 
