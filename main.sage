@@ -1,7 +1,9 @@
 #!/usr/bin/env sage
 
-from FrameManager import FrameManager
-from VideoConverter import VideoConverter
+
+
+from Classes.FrameManager import FrameManager
+from Classes.VideoConverter import VideoConverter
 
 from Animations.AnimationManager import AnimationManager
 
