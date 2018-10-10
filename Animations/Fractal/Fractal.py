@@ -94,23 +94,34 @@ def upgrade_matrice(oldMatrice,newMatrice):
 				if newMatrice.tabCouche[(couches+3)].tabCarre[carre].tabVal != [1,1,1,1,1,1,1,1,1]:
 					newMatrice.tabCouche[(couches+3)].tabCarre[carre].tabVal=[0,0,0,0,1,0,0,0,0]
 				if couches == 0:
-					newMatrice.tabCouche[couches].tabCarre[carre-1].tabVal[4]=1
-					newMatrice.tabCouche[couches].tabCarre[carre+1].tabVal[4]=1
+					if carre - 1 >= 0 and carre%math.sqrt(nbCarre) != 0:
+						newMatrice.tabCouche[couches].tabCarre[carre-1].tabVal[4]=1
+					if carre + 1 < nbCarre and carre%math.sqrt(nbCarre) != math.sqrt(nbCarre)-1:
+						newMatrice.tabCouche[couches].tabCarre[carre+1].tabVal[4]=1
 					#print(couches)
 					#print('carre ? : ' , carre)
 					#print('carre max auquel on veut acceder : ', int(carre + math.sqrt(nbCarre) - 1) )
-					newMatrice.tabCouche[couches].tabCarre[int(carre - math.sqrt(nbCarre))].tabVal[4]=1
-					newMatrice.tabCouche[couches].tabCarre[int(carre + math.sqrt(nbCarre))].tabVal[4]=1
-					newMatrice.tabCouche[couches].tabCarre[int(carre + math.sqrt(nbCarre) + 1)].tabVal[4]=1
-					newMatrice.tabCouche[couches].tabCarre[int(carre + math.sqrt(nbCarre) - 1)].tabVal[4]=1
-					newMatrice.tabCouche[couches].tabCarre[int(carre - math.sqrt(nbCarre) - 1)].tabVal[4]=1
-					newMatrice.tabCouche[couches].tabCarre[int(carre - math.sqrt(nbCarre) + 1)].tabVal[4]=1
-			if newMatrice.tabCouche[couches].tabCarre[carre].tabVal==[1,1,1,1,1,1,1,1,1] and couches%3==1:
-				newMatrice.tabCouche[couches].tabCarre[int(carre - math.sqrt(nbCarre))].tabVal[7]=1
-				newMatrice.tabCouche[couches].tabCarre[int(carre + math.sqrt(nbCarre))].tabVal[1]=1
-				newMatrice.tabCouche[couches].tabCarre[int(carre - 1)].tabVal[5]=1
-				newMatrice.tabCouche[couches].tabCarre[int(carre + 1)].tabVal[3]=1
-
+					if carre - math.sqrt(nbCarre) >= 0 :
+						newMatrice.tabCouche[couches].tabCarre[int(carre - math.sqrt(nbCarre))].tabVal[4]=1
+				   	if carre + math.sqrt(nbCarre) < nbCarre:
+						newMatrice.tabCouche[couches].tabCarre[int(carre + math.sqrt(nbCarre))].tabVal[4]=1
+					if carre + math.sqrt(nbCarre) +1 < nbCarre and carre%math.sqrt(nbCarre) != math.sqrt(nbCarre)-1:
+						newMatrice.tabCouche[couches].tabCarre[int(carre + math.sqrt(nbCarre) + 1)].tabVal[4]=1
+				   	if  carre + math.sqrt(nbCarre) - 1 < nbCarre and carre%math.sqrt(nbCarre) != 0:
+						newMatrice.tabCouche[couches].tabCarre[int(carre + math.sqrt(nbCarre) - 1)].tabVal[4]=1
+				    	if carre - math.sqrt(nbCarre) -1 >= 0 and carre%math.sqrt(nbCarre) != 0:
+						newMatrice.tabCouche[couches].tabCarre[int(carre - math.sqrt(nbCarre) - 1)].tabVal[4]=1
+				    	if carre - math.sqrt(nbCarre) + 1 >=0 and carre%math.sqrt(nbCarre) != math.sqrt(nbCarre)-1:
+                        			newMatrice.tabCouche[couches].tabCarre[int(carre - math.sqrt(nbCarre) + 1)].tabVal[4]=1
+				if newMatrice.tabCouche[couches].tabCarre[carre].tabVal==[1,1,1,1,1,1,1,1,1] and couches%3==1:
+					if carre - math.sqrt(nbCarre) >= 0:
+                    				newMatrice.tabCouche[couches].tabCarre[int(carre - math.sqrt(nbCarre))].tabVal[7]=1
+                			if carre + math.sqrt(nbCarre) < nbCarre:
+                    				newMatrice.tabCouche[couches].tabCarre[int(carre + math.sqrt(nbCarre))].tabVal[1]=1
+                			if carre - 1 >= 0 and carre%math.sqrt(nbCarre) != 0:
+                    				newMatrice.tabCouche[couches].tabCarre[int(carre - 1)].tabVal[5]=1
+                			if carre + 1 < nbCarre and carre%math.sqrt(nbCarre) != math.sqrt(nbCarre)-1:
+                    				newMatrice.tabCouche[couches].tabCarre[int(carre + 1)].tabVal[3]=1
 
 	return newMatrice
 
