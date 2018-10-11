@@ -26,13 +26,13 @@ class AnimationManager:
 	def render(self, frameNumber, filename):
 		self.frameManager.setCurrentFrame(frameNumber)
 
-		animation = self.getCurrentAnimation()
-
-		animation.render(frameNumber, filename)
-
 		if self.frameManager.isBeat():
 			print()
 			print('{:3d}.{}.{} '.format(self.frameManager.barCount() + 1, self.frameManager.beatModulo(), self.frameManager.sixteenthModulo()), end='')
+
+		animation = self.getCurrentAnimation()
+
+		animation.render(frameNumber, filename)
 
 		print('.', end='')
 
@@ -44,15 +44,21 @@ class AnimationManager:
 			'animation': animation
 		})
 
-	# TODO : select correct animation based on current frame, animation's start frame and duration
 	def getCurrentAnimation(self):
 		current_frame = self.frameManager.getCurrentFrame()
 
+		# print('{:3d}'.format(current_frame) + ' ', end='')
+
 		for animation in self.animations:
-			if animation['start'] >= current_frame and animation['start'] + animation['animation'].getDuration() < current_frame:
+			start = animation['start'] + 1
+			end   = start + animation['animation'].getDuration()
+
+			if current_frame >= start and current_frame < end:
+				# print(animation['animation'].__class__.__name__, end='')
+
 				return animation['animation']
 
-		return self.animations[0]['animation']
+		return None
 
 	def getAnimationFrames(self):
 		frames = 0
