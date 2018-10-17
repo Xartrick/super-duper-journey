@@ -8,7 +8,7 @@ from Classes.AnimationManager import AnimationManager
 
 import argparse
 
-FRAME_PATTERN = 'frames/frame-%04d.png'
+FRAME_PATTERN = 'frames/frame-%05d.png'
 
 def main():
 	parser = argparse.ArgumentParser(description='Generate an animation with SageMath based on beat timing. For better result, BPM should be divisible by FPS.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
