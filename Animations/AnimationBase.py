@@ -2,7 +2,7 @@
 
 from sage.all import Tachyon
 
-class AnimationBase:
+class AnimationBase(object):
 	frameManager = None
 	width         = 0
 	height        = 0
