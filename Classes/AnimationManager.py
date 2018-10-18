@@ -6,6 +6,7 @@ from sage.all import parallel
 
 from Animations.AnimationTerrain import AnimationTerrain
 from Animations.AnimationFractal import AnimationFractal
+from Animations.AnimationMaze import AnimationMaze
 
 class AnimationManager:
 	frameManager = None
@@ -32,7 +33,7 @@ class AnimationManager:
 
 		animation = self.getCurrentAnimation()
 
-		animation.render(frameNumber, filename)
+		animation['animation'].render(frameNumber - animation['start'], filename)
 
 		print('.', end='')
 
@@ -56,7 +57,7 @@ class AnimationManager:
 			if current_frame >= start and current_frame < end:
 				# print(animation['animation'].__class__.__name__, end='')
 
-				return animation['animation']
+				return animation
 
 		return None
 
@@ -67,3 +68,4 @@ class AnimationManager:
 			frames += animation['animation'].getDuration()
 
 		return frames
+	
