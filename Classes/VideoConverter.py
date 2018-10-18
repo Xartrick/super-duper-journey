@@ -13,7 +13,7 @@ class VideoConverter:
 		self.fps    = fps
 
 	def convert(self):
-		os.system('ffmpeg -framerate %i -i %s -c libx264 -pix_fmt yuv420p %s' % (self.fps, self.input, self.output))
+		os.system('ffmpeg -y -framerate %i -i %s -c libx264 -pix_fmt yuv420p %s' % (self.fps, self.input, self.output))
 
 	@classmethod
 	def clean(cls):
