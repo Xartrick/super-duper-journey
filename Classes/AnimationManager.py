@@ -48,15 +48,11 @@ class AnimationManager:
 	def getCurrentAnimation(self):
 		current_frame = self.frameManager.getCurrentFrame()
 
-		# print('{:3d}'.format(current_frame) + ' ', end='')
-
 		for animation in self.animations:
 			start = animation['start'] + 1
 			end   = start + animation['animation'].getDuration()
 
 			if current_frame >= start and current_frame < end:
-				# print(animation['animation'].__class__.__name__, end='')
-
 				return animation
 
 		return None
