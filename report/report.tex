@@ -1,0 +1,129 @@
+\documentclass[]{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc} 
+
+% Title Page
+\title{
+	Rapport\\
+	\textbf{Modélisation Mathématique}\\
+	M3202C
+}
+
+\date{17 Octobre, 2018}
+
+\author{
+	\vspace*{0.3in}\\
+	Sirine ACHACHE\\
+	\texttt{sirine.achache@etu.univ-amu.fr}
+	\and
+	Benjamin LEGRAND\\
+	\texttt{benjamin.legrand@etu.univ-amu.fr}
+	\and
+	Nicolas MARTINEZ\\
+	\texttt{nicolas.martinez@etu.univ-amu.fr}
+	\and
+	Emma TARFI\\
+	\texttt{emma.tarfi@etu.univ-amu.fr}
+	\\
+	\vspace*{0.5in}\\
+	\includegraphics[width=1in]{iut.png} \\
+	\textbf{Université Aix-Marseille}\\
+	Aix-en-Provence, France
+}
+
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\maketitle
+\newpage
+
+\pagenumbering{arabic}
+
+\renewcommand{\contentsname}{Sommaire}
+\tableofcontents
+\newpage
+
+\begin{abstract}
+	Dans le cadre du projet de modélisation mathématique proposé au cours de la seconde année de DUT Informatique à l'IUT d'Aix-en-Provence, nous avons réaliser une animation 3D à l'aide de la bibliothèque \texttt{SageMath} et du langage de programmation \texttt{Python} dans sa version 2.\\
+	\\
+	Le résultat est une animation de plus de deux minutes, mêlant arts audiovisuels et mathématiques au travers de plusieurs animations...\\
+	\\
+	Ce projet se veut également être une démonstration technique pour montrer le potentiel d'un logiciel qui n'est à l'origine pas destiné à l'animation.
+\end{abstract}
+
+\newpage
+
+\section{Introduction}
+
+...
+
+\newpage
+
+\section{Outils}
+
+\subsection{Python}
+
+\texttt{Python} est un langage de programmation objet interprété, multi-paradigme et multiplateformes. Il favorise la programmation impérative structurée, fonctionnelle et orientée objet. Il est doté d'un typage dynamique fort, d'une gestion automatique de la mémoire par ramasse-miettes et d'un système de gestion d'exceptions ; il est ainsi similaire à \texttt{Perl}, \texttt{Ruby}, \texttt{Scheme}, \texttt{Smalltalk} et \texttt{Tcl}.\\
+\\
+Le langage \texttt{Python} est placé sous une licence libre proche de la licence \texttt{BSD4} et fonctionne sur la plupart des plates-formes informatiques, des smartphones aux ordinateurs \texttt{centraux5}, de \texttt{Windows} à \texttt{Unix} avec notamment \texttt{GNU/Linux} en passant par \texttt{macOS}, ou encore \texttt{Android}, \texttt{iOS}, et aussi avec \texttt{Java} ou encore \texttt{.NET}. Il est conçu pour optimiser la productivité des programmeurs en offrant des outils de haut niveau et une syntaxe simple à utiliser.\\
+\\
+Il est également apprécié par certains pédagogues qui y trouvent un langage où la syntaxe, clairement séparée des mécanismes de bas niveau, permet une initiation aisée aux concepts de base de la programmation6. 
+
+\subsection{SageMath}
+
+\texttt{SageMath} est un logiciel libre généraliste de calcul mathématique.\\
+\\
+Le projet \texttt{SageMath} vise à "développer une alternative open source viable" aux systèmes de calcul formel \texttt{Magma}, \texttt{Maple}, et \texttt{Mathematica} ainsi qu'au logiciel de calcul numérique \texttt{MATLAB}.\\
+\\
+Une originalité architecturale importante de \texttt{SageMath} vis-à-vis de la plupart des autres systèmes de calcul formel est la manière dont il s'appuie sur des logiciels existants. Plutôt que de fournir un langage de commande spécifique, \texttt{SageMath} utilise \texttt{Python}, un langage de programmation généraliste préexistant. Les fonctionnalités mathématiques proprement dites s'appuient elles aussi largement sur d'autres logiciels, que \texttt{SageMath} inclut et dont il unifie l'interface.\\
+\\
+Le système \texttt{SageMath} se compose ainsi à la fois d'une distribution de logiciels tiers, d'une bibliothèque Python de calcul mathématique dont une partie des fonctionnalités fait directement appel aux logiciels de la distribution, et d'interfaces utilisateur permettant l'utilisation interactive de cette bibliothèque.\\
+\\
+\texttt{SageMath} est diffusé sous les termes de la licence publique générale \texttt{GNU} version 2.
+
+\section{Glossaire}
+
+\subsection{BPM}
+
+\texttt{Beat-per-minute} soit battement par minute.\\
+C’est le nombre de temps que l’on obtient en une minute.
+
+\subsection{FPS / frame rate}
+
+\texttt{Frame-per-second} soit images par seconde (\texttt{IPS}).\\
+C’est le nombre d’image affiché en une seconde.\\
+\\
+Au cinéma, le nombre d'images par seconde, qui était au début de 16 ou 18 images par seconde, fut normalisé à 24. À la télévision, le système européen \texttt{PAL} (ou \texttt{SÉCAM} en France) est de 25 images par seconde. Aux États-Unis et au Japon, la norme \texttt{NTSC} est de 30 images par seconde.
+
+\subsection{Fractal}
+
+Objet géométrique défini par un ensemble de propriétés précises, dont celle d’être autosimilaire, c’est-à-dire que le tout est semblable à l’une de ses parties.
+
+\subsection{Frame}
+
+Image.
+
+\subsection{Mesure / bar}
+
+La mesure (ou \texttt{bar} en anglais) est le rythme divisant la durée d’une phrase musicale.\\
+\\
+Par exemple, la valse est constitué d’une mesure en trois temps.\\
+\\
+Par ailleurs, la ronde est un symbole du solfège indiquant une note de quatre temps.\\
+\\
+Par choix, nous utiliserons une mesure (\texttt{time signature} en anglais) en quatre temps, cette dernière étant la plus utilisé dans les musiques électroniques actuelles.
+
+\subsection{Temps / beat}
+
+Le temps (ou \texttt{beat} en anglais) est chacune des principales divisions de la mesure, dont les unes sont plus marquées que les autres dans l’exécution, quoique d’ailleurs elles soient égales en durée.\\
+\\
+La noire est un symbole du solfège indiquant une note égal à un quart de la ronde, soit un temps.
+
+\subsection{Double-croche / sixteenth}
+
+La double-croche (ou \texttt{sixteenth}) vaut un quart de la noire ou un seizième de la ronde soit un quart de temps.
+
+\end{document}
