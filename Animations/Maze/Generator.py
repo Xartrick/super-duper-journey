@@ -1,99 +1,141 @@
-import numpy as np
+from __future__ import print_function
+
+import math
 import random
+from random import randint
 
 class Generator:
 	EMPTY = ' '
 	WALL  = '#'
 	AGENT = 'o'
 	GOAL  = 'x'
-	
-	def adjacent(self, cell):
-		i,j = cell
-		for (y,x) in ((1,0), (0,1), (-1, 0), (0,-1)):
-			yield (i+y, j+x), (i+2*y, j+2*x)
-	
-	def generate(self, width, height): 
-		width  += 2
-		height += 2
 
+	def __init__(self):
+		pass
+
+	def showCon(self):
+		for i in range(len(self.connectedMaze)):
+			if(i%self.WIDTH==0):
+				print()
+			print(self.connectedMaze[i],end=' ')
+
+	def showMaze(self):
+		for i in range(len(self.Maze)):
+			if(i%(self.WIDTH*2+1)==0):
+				print()
+			print(self.Maze[i],end='')
+
+	def showRemoved(self):
+		for i in range(len(self.removedWall)):
+			print(self.removedWall[i],end=' ')
+
+	def isUsed(self,nb):
+		for i in range(len(self.removedWall)):
+			if nb == self.removedWall[i]:
+				return True
+		return False
+
+	def initialize(self):
+		for i in range(1,(self.WIDTH*self.HEIGHT) + 1 ):
+			self.connectedMaze.append(i)
+
+		height = self.HEIGHT*2 +1
+		width = self.WIDTH*2 +1
 		rows, cols = height, width
-	
-		maze = {}
-	
-		spaceCells = set()
-		connected  = set()
-		walls      = set()
-	
-		for i in range(rows):
-			for j in range(cols):
-				if (i % 2 == 1) and (j % 2 == 1):
-					maze[(i,j)] = self.EMPTY
-				else:
-					maze[(i,j)] = self.WALL 
-	
-		for i in range(rows):
-			maze[(i, 0)]        = self.WALL
-			maze[(i, cols - 1)] = self.WALL
-		
-		for j in range(cols):
-			maze[(0, j)]        = self.WALL
-			maze[(rows - 1, j)] = self.WALL
-	
-		for i in range(rows):
-			for j in range(cols):
-				if maze[(i, j)] == self.EMPTY:
-					spaceCells.add((i, j))
-				if maze[(i, j)] == self.WALL:
-					walls.add((i, j))
 
-		connected.add((1, 1))
+		for i in range(height*width):
+			self.Maze.append(self.EMPTY)
 
-		while len(connected) < len(spaceCells):
-			doA, doB = None, None
-			cns      = list(connected)
+		for i in range(height):
+			for j in range(width):
+				if(i==0 or j == 0 or i==height-1 or j==width-1 or i%2==0 or j%2==0):
+					self.Maze[i*height+j]=self.WALL
+				if(i==1 and j==1):
+					self.Maze[i*height+j]=self.AGENT
+				if(i==height-2 and j==width-2):
+					self.Maze[i*height+j]=self.GOAL
 
-			random.shuffle(cns)
+	def finished(self):
+		end = True
 
-			for (i,j ) in cns:
-				if doA is not None:
-					break
-				
-				for A, B in self.adjacent((i,j)):
-					if A not in walls: 
-						continue
-					
-					if (B not in spaceCells) or (B in connected):
-						continue
-					
-					doA, doB = A, B
+		for i in range(len(self.connectedMaze)):
+			if(self.connectedMaze[i] != 1):
+				end = False
+				break
 
-					break
+		return end
 
-			A, B    = doA, doB
-			maze[A] = self.EMPTY
+	def randomGenerate(self):
+		first = self.WIDTH*2+3
+		last = len(self.Maze)-self.WIDTH*2-4
 
-			walls.remove(A)
+		height = self.HEIGHT*2 +1
+		width = self.WIDTH*2 +1
+
+		end=self.finished()
+
+		while(not end):
+			wall = randint(first,last)
+			while( (((wall//width)%2) == ((wall%width)%2)) or (wall%width==0) or (wall%width == width-1) or (self.isUsed(wall)) ):
+				wall = randint(first,last)
+
+			ligne = int(wall//width)
+			col = int(wall%width)
+
+			if(ligne%2==0):
+				ligne1 = (ligne-1)//2
+				ligne2 = (ligne+1)//2
+				col = (col-1)//2
+				case1=self.connectedMaze[ligne1*self.HEIGHT+col]
+				case2=self.connectedMaze[ligne2*self.HEIGHT+col]
+				if(case1 != case2):
+					newNb = min(case1,case2)
+					oldNb = max(case1,case2)
+					for i in range(len(self.connectedMaze)):
+						if self.connectedMaze[i] == oldNb:
+							self.connectedMaze[i] = newNb
+					self.removedWall.append(wall)
+					self.Maze[wall]=self.EMPTY
+
+			else :
+				col1 = (col-1)//2
+				col2 = (col+1)//2
+				ligne = (ligne-1)//2
+				case1=self.connectedMaze[ligne*self.HEIGHT+col1]
+				case2=self.connectedMaze[ligne*self.HEIGHT+col2]
+				if(case1 != case2):
+					newNb = min(case1,case2)
+					oldNb = max(case1,case2)
+					for i in range(len(self.connectedMaze)):
+						if self.connectedMaze[i] == oldNb:
+							self.connectedMaze[i] = newNb
+					self.removedWall.append(wall)
+					self.Maze[wall]=self.EMPTY
+
+			end=self.finished()
+
+	def generate(self, width, height):
+		self.WIDTH=width
+		self.HEIGHT=height
+		self.connectedMaze=[]
+		self.Maze=[]
+		self.removedWall=[]
+
+		self.initialize()
+		self.randomGenerate()
+
+		maze = []
+
+		maze_line = ''
+
+		for i in range(len(self.Maze)):
+			if(i%(self.WIDTH*2+1)==0):
+				if len(maze_line) > 0:
+					maze.append(maze_line)
+					maze_line = ''
 			
-			spaceCells.add(A)
-
-			connected.add(A)
-			connected.add(B)
-	
-		TL = (1, 1)
-		BR = (rows - 2, cols - 2)
-
-		if rows % 2 == 0:
-			BR = (BR[0] - 1, BR[1])
+			maze_line += self.Maze[i]
 		
-		if cols % 2 == 0:
-			BR = (BR[0], BR[1] - 1)
-	
-		maze[TL] = self.AGENT
-		maze[BR] = self.GOAL
-	
-		lines = []
+		maze.append(maze_line)
 
-		for i in range(rows):
-			lines.append(''.join(maze[(i,j)] for j in range(cols)))
-	
-		return lines
+		return maze
