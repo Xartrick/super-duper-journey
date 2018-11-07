@@ -10,7 +10,7 @@ class Carre:
 class Couche:
 	def __init__(self):
 		self.tabCarre=[]
-		self.Lignes=[]
+		self.ligne=[]
 #class Couche
 
 class Matrice:
@@ -24,18 +24,18 @@ def init_lignes(couche):
 
 	for i in range(0,nbLigne):
 		tmp=[]
-		couche.Lignes.append(tmp)
+		couche.lignes.append(tmp)
 
 	for carre in couche.tabCarre:
 		compteur = int(0)
 		for elem in carre.tabVal:
 			numLigne=int((couche.tabCarre.index(carre) // math.sqrt(len(couche.tabCarre)) * 3) + ((compteur) // ( math.sqrt(len(carre.tabVal)))))
-			couche.Lignes[numLigne].append(elem)
+			couche.lignes[numLigne].append(elem)
 			compteur = compteur +1
 	return couche
 
 def affiche_lignes(couche):
-	for ligne in couche.Lignes:  
+	for ligne in couche.lignes:  
 		for elem in ligne:
 			print(elem,end=' ') 
 		print()
@@ -69,12 +69,12 @@ def upgrade_matrice(oldMatrice,newMatrice):
 			newMatrice.tabCouche[couches].tabCarre.append(Carre())
 			if couches != nbCouche-1:
 				oldCouche=int(couches // 3)
-				LigneCarre = int(carre // math.sqrt(nbCarre))
-				ColumnCarre = int(carre - ((math.sqrt(nbCarre) * LigneCarre)))
-				oldCarre = int((LigneCarre//3)*3 + (ColumnCarre//3))
-				LigneElem = int(LigneCarre%3)
-				ColumnElem = int(ColumnCarre%3)
-				oldElem=int(LigneElem*3 + ColumnElem)
+				ligneCarre = int(carre // math.sqrt(nbCarre))
+				columnCarre = int(carre - ((math.sqrt(nbCarre) * ligneCarre)))
+				oldCarre = int((ligneCarre//3)*3 + (columnCarre//3))
+				ligneElem = int(ligneCarre%3)
+				columnElem = int(columnCarre%3)
+				oldElem=int(ligneElem*3 + columnElem)
 				if int(oldMatrice.tabCouche[oldCouche].tabCarre[oldCarre].tabVal[oldElem]) == 1:
 					newMatrice.tabCouche[couches].tabCarre[carre].tabVal=[1,1,1,1,1,1,1,1,1]
 				else:
