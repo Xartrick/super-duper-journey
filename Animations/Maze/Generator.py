@@ -41,7 +41,6 @@ class Generator:
 
 		height = self.HEIGHT*2 +1
 		width = self.WIDTH*2 +1
-		rows, cols = height, width
 
 		for i in range(height*width):
 			self.Maze.append(self.EMPTY)
@@ -49,11 +48,11 @@ class Generator:
 		for i in range(height):
 			for j in range(width):
 				if(i==0 or j == 0 or i==height-1 or j==width-1 or i%2==0 or j%2==0):
-					self.Maze[i*height+j]=self.WALL
+					self.Maze[i*width+j]=self.WALL
 				if(i==1 and j==1):
-					self.Maze[i*height+j]=self.AGENT
+					self.Maze[i*width+j]=self.AGENT
 				if(i==height-2 and j==width-2):
-					self.Maze[i*height+j]=self.GOAL
+					self.Maze[i*width+j]=self.GOAL
 
 	def finished(self):
 		end = True
@@ -86,8 +85,8 @@ class Generator:
 				ligne1 = (ligne-1)//2
 				ligne2 = (ligne+1)//2
 				col = (col-1)//2
-				case1=self.connectedMaze[ligne1*self.HEIGHT+col]
-				case2=self.connectedMaze[ligne2*self.HEIGHT+col]
+				case1=self.connectedMaze[ligne1*self.WIDTH+col]
+				case2=self.connectedMaze[ligne2*self.WIDTH+col]
 				if(case1 != case2):
 					newNb = min(case1,case2)
 					oldNb = max(case1,case2)
@@ -101,8 +100,8 @@ class Generator:
 				col1 = (col-1)//2
 				col2 = (col+1)//2
 				ligne = (ligne-1)//2
-				case1=self.connectedMaze[ligne*self.HEIGHT+col1]
-				case2=self.connectedMaze[ligne*self.HEIGHT+col2]
+				case1=self.connectedMaze[ligne*self.WIDTH+col1]
+				case2=self.connectedMaze[ligne*self.WIDTH+col2]
 				if(case1 != case2):
 					newNb = min(case1,case2)
 					oldNb = max(case1,case2)
