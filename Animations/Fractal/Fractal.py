@@ -10,7 +10,7 @@ class Carre:
 class Couche:
 	def __init__(self):
 		self.tabCarre=[]
-		self.ligne=[]
+		self.lignes=[]
 #class Couche
 
 class Matrice:
