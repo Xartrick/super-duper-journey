@@ -19,35 +19,35 @@ class Matrice:
 		self.tabCouche=[]
 #class Matrice
 
-def init_lignes(Couche):
-	nbLigne=int((((len(Couche.tabCarre))*3)/(math.sqrt(len(Couche.tabCarre)))))
+def init_lignes(couche):
+	nbLigne=int((((len(couche.tabCarre))*3)/(math.sqrt(len(couche.tabCarre)))))
 
 	for i in range(0,nbLigne):
 		tmp=[]
-		Couche.Lignes.append(tmp)
+		couche.Lignes.append(tmp)
 
-	for carre in Couche.tabCarre:
+	for carre in couche.tabCarre:
 		compteur = int(0)
 		for elem in carre.tabVal:
-			numLigne=int((Couche.tabCarre.index(carre) // math.sqrt(len(Couche.tabCarre)) * 3) + ((compteur) // ( math.sqrt(len(carre.tabVal)))))
-			Couche.Lignes[numLigne].append(elem)
+			numLigne=int((couche.tabCarre.index(carre) // math.sqrt(len(couche.tabCarre)) * 3) + ((compteur) // ( math.sqrt(len(carre.tabVal)))))
+			couche.Lignes[numLigne].append(elem)
 			compteur = compteur +1
-	return Couche
+	return couche
 
-def affiche_lignes(Couche):
-	for ligne in Couche.Lignes:  
+def affiche_lignes(couche):
+	for ligne in couche.Lignes:  
 		for elem in ligne:
 			print(elem,end=' ') 
 		print()
 	print()
 	#affiche matrice
 
-def init_affiche_ligne(Couche):
-	init_lignes(Couche)
-	affiche_lignes(Couche)
+def init_affiche_ligne(couche):
+	init_lignes(couche)
+	affiche_lignes(couche)
 
-def affiche_mat(Matrice):
-	for couches in Matrice.tabCouche:
+def affiche_mat(matrice):
+	for couches in matrice.tabCouche:
 		init_affiche_ligne(couches)
 
 def initialize():
