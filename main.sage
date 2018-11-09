@@ -1,4 +1,5 @@
 #!/usr/bin/env sage
+
 # -*- coding: utf-8 -*-
 
 from Classes.FrameManager import FrameManager
@@ -23,12 +24,12 @@ def main():
 
 	args = parser.parse_args()
 
-	output = args.output
-	audio  = args.audio
-	width  = args.width
-	height = args.height
-	fps    = args.fps
-	bpm    = args.bpm
+	output   = args.output
+	audio    = args.audio
+	width    = args.width
+	height   = args.height
+	fps      = args.fps
+	bpm      = args.bpm
 	addAudio = args.a
 
 	frameManager     = FrameManager(fps, bpm)

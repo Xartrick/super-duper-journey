@@ -20,8 +20,13 @@ class AnimationManager:
 		self.height       = height
 
 	def initializeAnimations(self):
+		self.addAnimation(AnimationTerrain(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 32))
+		self.addAnimation(AnimationFractal(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar() * 8)))
+		self.addAnimation(AnimationMaze(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
+		self.addAnimation(AnimationMaze(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
+		self.addAnimation(AnimationMaze(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
+		self.addAnimation(AnimationMaze(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
 		self.addAnimation(AnimationTerrain(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar()) * 4))
-		self.addAnimation(AnimationFractal(self.frameManager, self.width, self.height, int(self.frameManager.framesPerBar() * 4)))
 
 	@parallel
 	def render(self, frameNumber, filename):

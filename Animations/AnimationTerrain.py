@@ -8,6 +8,7 @@ from noise import pnoise2
 
 class AnimationTerrain(AnimationBase):
 	octave = 1
+	divide = 100.0
 
 	def render(self, frameNumber, filename):
 		self.frameManager.setCurrentFrame(frameNumber)
@@ -17,28 +18,29 @@ class AnimationTerrain(AnimationBase):
 
 		look_at = (0.5, 0, 0.5)
 
-		alpha    = (2.0 * pi) * (float(frameNumber) / float(self.getDuration()))
-		p_matrix = matrix(2, 1, [1.0, 1.0])
-		r_matrix = matrix(2, 2, [cos(alpha), -sin(alpha), sin(alpha), cos(alpha)])
-
-		pos = r_matrix * p_matrix
-
-		camera_center = (float(pos[0][0]), 0.75, float(pos[1][0]))
-
 		self.initializeWindow(camera_center, look_at)
 
 		self.window.light((1, 2, -3), 0.2, (1, 1, 1))
 
-		fpb        = float(self.frameManager.framesPerBeat()) * 2.0
-		brightness = (frameNumber % fpb) / fpb
-		color      = (0, 1.0 - brightness, 0)
-
+		fpb        = float(self.frameManager.framesPerBar()) * 2.0
+		brightness = 1.0 - (((frameNumber - 1) % fpb) / fpb)
+		color      = ((46.0 / 255.0) * brightness, (204.0 / 255.0) * brightness, (113.0 / 255.0) * brightness)
+		
 		self.window.texture('green', ambient=0.2, diffuse=1.0, specular=0.0, opacity=1.0, color=color)
 
-		self.octave = self.frameManager.beatCount() + 1
+		if self.frameManager.barCount() >= 16:
+			self.octave = 3
+			self.divide = 75.0
 
-		cols  = 25
-		rows  = 25
+			cols = 100
+			rows = 100
+		else:
+			self.octave = 1
+			self.divide = 100.0
+
+			cols = 50
+			rows = 50
+
 		scale = 1.0 / float(cols)
 
 		for row in range(0, rows):
@@ -49,4 +51,4 @@ class AnimationTerrain(AnimationBase):
 		self.window.save(filename)
 
 	def terrain(self, xPos, yPos, offset=0.0):
-		return pnoise2((float(offset) / 100.0) - (yPos / 100.0), (float(offset) / 100.0) - (xPos / 100.0), self.octave)
+		return pnoise2((float(offset) / self.divide) - (yPos / self.divide), (float(offset) / self.divide) - (xPos / self.divide), self.octave)

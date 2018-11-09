@@ -37,6 +37,9 @@ class AnimationMaze(AnimationBase):
 				elif wall == 'x':
 					self.drawCube(scale * x_pos, 0, scale * y_pos, scale, 'red')
 		
+		#for pos in self.solution:
+		#	self.drawCube(scale * pos[0], 0, scale * pos[1], scale, 'white')
+		
 		player = self.getPlayerPosition()
 
 		w = (scale / 2.0)
