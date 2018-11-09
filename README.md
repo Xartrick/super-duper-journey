@@ -7,7 +7,7 @@ Projet / M3202C - Modélisations mathématiques @ IUT Aix-en-Provence
 ## Auteurs
 
 * ACHACHE Sirine
-* LEGRAND Benjamin
+* LE-GRAND Benjamin
 * MARTINEZ Nicolas
 * TARFI Emma
 
@@ -37,9 +37,9 @@ $ pip2 install -r requirements.txt --user
 ## Usage
 
 ```
-λ  super-duper-journey master ✗ ./main.sage --help
-usage: main.sage.py [-h] [--output OUTPUT] [--width WIDTH] [--height HEIGHT]
-                    [--fps FPS] [--bpm BPM]
+$ ./main.sage --help
+usage: main.sage.py [-h] [--output OUTPUT] [--audio AUDIO] [--width WIDTH]
+                    [--height HEIGHT] [--fps FPS] [--bpm BPM] [-a]
 
 Generate an animation with SageMath based on beat timing. For better result,
 BPM should be divisible by FPS.
@@ -47,11 +47,23 @@ BPM should be divisible by FPS.
 optional arguments:
   -h, --help       show this help message and exit
   --output OUTPUT  Output filename (default: output/output.mp4)
+  --audio AUDIO    Audio filename (default: output/audio.mp3)
   --width WIDTH    Frame width (default: 1280)
   --height HEIGHT  Frame height (default: 720)
   --fps FPS        Frame rate (default: 30)
   --bpm BPM        Beat-per-minute (default: 150)
+  -a               Add audio to final file (default: False)
 ```
+
+Commande utilisé pour le rendu final :
+
+```
+$ ./main.sage --fps 60 -a
+```
+
+*Remarque 1 : le fichier `output/audio.mp3` doit être présent pour qu'il soit ajouté.*
+*Remarque 2 : ne pas utiliser `-a` si on ne veut pas ajouter le son.*
+*Remarque 3 : ne pas utiliser `--fps` pour être en 30 FPS (pour un rendu plus rapide).*
 
 ## Références
 
